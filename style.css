@@ -54,7 +54,7 @@ h1 {
     left: 25px;
     top: 25px;
     width: 270px;
-    height: 175px;
+    height: 280px;
     background: white;
     border-radius: 10px;
     padding: 20px;
@@ -76,6 +76,7 @@ h1 {
 }
 
 .carta p {
+    
     margin: 8px 0;
     color: #555;
     font-size: 14px;
