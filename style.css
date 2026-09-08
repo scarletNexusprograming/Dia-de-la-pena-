@@ -1,0 +1,214 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(135deg, #fff176, #ffb300);
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+h1 {
+    color: #8a5a00;
+    font-size: 38px;
+    margin-bottom: 45px;
+    text-shadow: 2px 2px white;
+}
+
+/*sobre de flores */
+.sobre {
+    position: relative; /*posicion*/
+    width: 320px;
+    height: 220px;
+    margin: auto;
+    cursor: pointer;
+}
+
+/* CUERPO */
+.cuerpo {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    height: 160px;
+    background: #f4b400;
+    border-radius: 8px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+    z-index: 2;
+}
+
+/* CARTA */
+.carta {
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    width: 270px;
+    height: 175px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+
+    opacity: 0;
+    transform: translateY(0);
+
+    transition:
+        transform 1s ease,
+        opacity 0.6s ease;
+
+    z-index: 3;
+    pointer-events: none;
+}
+
+.carta h2 {
+    margin: 0 0 10px;
+    color: #d88900;
+}
+
+.carta p {
+    margin: 8px 0;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+/* PARTE DELANTERA DEL SOBRE */
+.frente {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    height: 105px;
+    background: #ffd54f;
+
+    clip-path: polygon(
+        0 0,
+        50% 100%,
+        100% 0
+    );
+
+    z-index: 5;
+    pointer-events: none;
+}
+
+/* TAPA */
+.tapa {
+    position: absolute;
+    left: 0;
+    top: 55px;
+    width: 320px;
+    height: 105px;
+
+    background: #ffca28;
+
+    clip-path: polygon(
+        0 0,
+        50% 100%,
+        100% 0
+    );
+
+    transform-origin: top center;
+
+    transition: transform 0.9s ease;
+
+    z-index: 6;
+    pointer-events: none;
+}
+
+/* AL ABRIR */
+
+.sobre.abierto .tapa {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+.sobre.abierto .carta {
+    opacity: 1;
+    transform: translateY(-150px);
+    z-index: 50;
+}
+
+/* TEXTO */
+.instruccion {
+    margin-top: 35px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #704900;
+}
+
+/* AUTOR */
+.autor {
+    position: fixed;
+    right: 20px;
+    bottom: 15px;
+
+    padding: 8px 15px;
+
+    background: rgba(255,255,255,0.85);
+    border-radius: 15px;
+
+    color: #8a5a00;
+    font-size: 14px;
+
+    z-index: 100;
+}
+
+/* FLORES */
+.flor {
+    position: fixed;
+    top: -50px;
+    font-size: 30px;
+    pointer-events: none;
+    z-index: 1;
+
+    animation: caer 5s linear forwards;
+}
+
+@keyframes caer {
+    from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* EXPLOSIÓN */
+
+.explosion {
+    position: fixed;
+    font-size: 30px;
+    pointer-events: none;
+    z-index: 200;
+
+    animation: explotar 1.5s ease-out forwards;
+}
+
+@keyframes explotar {
+    from {
+        transform: translate(0,0) scale(0.5);
+        opacity: 1;
+    }
+
+    to {
+        transform:
+            translate(var(--x), var(--y))
+            rotate(360deg)
+            scale(1.5);
+
+        opacity: 0;
+    }
+}
