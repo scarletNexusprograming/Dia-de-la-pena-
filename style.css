@@ -4,19 +4,20 @@
 
 body {
     margin: 0;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
     background: linear-gradient(135deg, #fff176, #ffb300);
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow-x: hidden;
 }
 
 .contenido {
     text-align: center;
     position: relative;
     z-index: 10;
+    padding: 40px 15px;
 }
 
 h1 {
@@ -54,10 +55,12 @@ h1 {
     left: 25px;
     top: 25px;
     width: 270px;
-    height: 280px;
+    max-height: 420px;
+    overflow-y: auto;
     background: white;
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
 
     opacity: 0;
     transform: translateY(0);
@@ -71,16 +74,49 @@ h1 {
 }
 
 .carta h2 {
-    margin: 0 0 10px;
-    color: #d88900;
+    margin: 0 0 2px;
+    color: #f4a300;
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+}
+
+.carta .nombre {
+    margin: 0 0 12px;
+    color: #f4a300;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.imagen-caja {
+    background: #fffef2;
+    border: 1.5px solid #ffca28;
+    border-radius: 6px;
+    padding: 4px;
+    margin-bottom: 12px;
+}
+
+.foto-carta {
+    width: 100%;
+    height: 90px;
+    border-radius: 4px;
+    display: block;
 }
 
 .carta p {
-    
-    margin: 8px 0;
+    text-align: left;
+    margin: 7px 0;
     color: #555;
-    font-size: 14px;
+    font-size: 12.5px;
     line-height: 1.4;
+}
+
+.carta .despedida {
+    text-align: center;
+    font-weight: bold;
+    color: #555;
+    margin-top: 10px;
 }
 
 /* PARTE DELANTERA DEL SOBRE */
@@ -135,8 +171,9 @@ h1 {
 
 .sobre.abierto .carta {
     opacity: 1;
-    transform: translateY(-150px);
+    transform: translateY(-110px);
     z-index: 50;
+    pointer-events: auto;
 }
 
 /* TEXTO */
